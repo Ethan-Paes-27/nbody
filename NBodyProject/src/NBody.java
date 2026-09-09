@@ -1,3 +1,7 @@
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.Scanner;
+
 public class NBody {
 
     public static void main(String[] args) {
@@ -12,30 +16,45 @@ public class NBody {
 
         String fname = "./data/planets.txt";
 
-		/* uncomment after you create Planet class
+        // //Planet[] planets = readPlanets(fname);
 
-		Planet[] planets = null; // readPlanets(fname);
-        */
+        // double radius = 0.0;
+        // readRadius(fname);
 
-        double radius = 0.0; // readRadius(fname);
 
-		/* uncomment after you create Planet class
+        // System.out.printf("%d\n", planets.length);
+        // System.out.printf("%.2e\n", radius);
+        // for (int i = 0; i < planets.length; i++) {
+        //     System.out.printf("%11.4e %11.4e %11.4e %11.4e %11.4e %12s\n",
+        //             planets[i].xPos, planets[i].yPos,
+        //             planets[i].xVel, planets[i].yVel,
+        //             planets[i].mass, planets[i].fileName);
+        // }
 
-		System.out.printf("%d\n", planets.length);
-		System.out.printf("%.2e\n", radius);
-		for (int i = 0; i < planets.length; i++) {
-		    System.out.printf("%11.4e %11.4e %11.4e %11.4e %11.4e %12s\n",
-		   		              planets[i].myXPos, planets[i].myYPos,
-		                      planets[i].myXVel, planets[i].myYVel,
-		                      planets[i].myMass, planets[i].myFileName);
-		}
+        // StdDraw.setScale(-radius, radius);
+        // StdDraw.picture(0, 0, "images/starfield.jpg");
 
-		*/
-        StdDraw.setScale(-radius, radius);
-        StdDraw.picture(0, 0, "images/starfield.jpg");
+        // for (double t = 0.0; t < totalTime; t += dt) {
 
-        for (double t = 0.0; t < totalTime; t += dt) {
+        // }
+    }
 
+    public static double readRadius(String fname) {
+        try {
+            Scanner scan = new Scanner(new File(fname));
+
+            int numPlanets = scan.nextInt();
+
+            double value = scan.nextDouble();
+
+            scan.close();
+
+            return value;
+        } catch (FileNotFoundException e) {
+            System.out.println("fumbled");
         }
+
+        return 0;
     }
 }
+
