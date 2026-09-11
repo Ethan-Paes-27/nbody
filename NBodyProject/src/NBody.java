@@ -58,6 +58,15 @@ public class NBody {
 
             StdDraw.show(1);
         }
+
+        System.out.printf("%d\n", planets.length);
+        System.out.printf("%.2e\n", radius);
+        for (int i = 0; i < planets.length; i++) {
+            System.out.printf("%11.4e %11.4e %11.4e %11.4e %11.4e %12s\n",
+                    planets[i].xPos, planets[i].yPos,
+                    planets[i].xVel, planets[i].yVel,
+                    planets[i].mass, planets[i].fileName);
+        }
     }
 
     public static double readRadius(String fname) {
