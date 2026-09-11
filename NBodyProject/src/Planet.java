@@ -37,11 +37,11 @@ public class Planet {
     }
 
     public double calcForceExertedByX(Planet p) {
-        return calcForceExertedBy(p) * (xPos - p.xPos) / (calcDistance(p));
+        return calcForceExertedBy(p) * (p.xPos - xPos) / (calcDistance(p));
     }
 
     public double calcForceExertedByY(Planet p) {
-        return calcForceExertedBy(p) * (yPos - p.yPos) / (calcDistance(p));
+        return calcForceExertedBy(p) * (p.yPos - yPos) / (calcDistance(p));
     }
 
     public double calcNetForceExertedByX(Planet[] planets) {
@@ -70,14 +70,18 @@ public class Planet {
         return net;
     }
 
-    public void update(double xForce, double yForce, double dt) {
+    public void update(double dt, double xForce, double yForce) {
         double xAcc = xForce / mass;
         double yAcc = yForce / mass;
 
         xVel += dt * xAcc;
         yVel += dt * yAcc;
 
-        xPos += dt * xAcc;
-        yPos += dt * yAcc;
+        xPos += dt * xVel;
+        yPos += dt * yVel;
+    }
+
+    public void draw() {
+        StdDraw.picture(xPos, yPos, "images/"+fileName);
     }
 }

@@ -46,5 +46,31 @@ public class TestPlanetConstructor {
      */
     private static void checkPlanetConstructor() {
         System.out.println("Checking Planet constructor...");
+
+        double xxPos = 1.0,
+                yyPos = 2.0,
+                xxVel = 3.0,
+                yyVel = 4.0,
+                mass = 5.0;
+
+        String imgFileName = "jupiter.gif";
+
+        Planet p = new Planet(xxPos, yyPos, xxVel, yyVel, mass, imgFileName);
+
+        checkEquals(xxPos, p.xPos, "x");
+        checkEquals(yyPos, p.yPos, "y");
+        checkEquals(xxVel, p.xVel, "xVelocity");
+        checkEquals(yyVel, p.yVel, "yVelocity");
+        checkEquals(mass, p.mass, "mass");
+        checkStringEquals(imgFileName, p.fileName, "path to image");
+
+        Planet pCopy = new Planet(p);
+        checkEquals(p.xPos, pCopy.xPos, "x");
+        checkEquals(p.yPos, pCopy.yPos, "y");
+        checkEquals(p.xVel, pCopy.xVel, "xVelocity");
+        checkEquals(p.yVel, pCopy.yVel, "yVelocity");
+        checkEquals(p.mass, pCopy.mass, "mass");
+        checkStringEquals(p.fileName, pCopy.fileName, "path to image");
+
     }
 }
