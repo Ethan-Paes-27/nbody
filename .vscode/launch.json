@@ -9,6 +9,20 @@
             "name": "TestPlanetConstructor",
             "request": "launch",
             "mainClass": "TestPlanetConstructor",
+            "projectName": "nbody_cb87bc5e"
+        },
+        {
+            "type": "java",
+            "name": "NBody",
+            "request": "launch",
+            "mainClass": "NBody",
+            "projectName": "nbody_cb87bc5e"
+        },
+        {
+            "type": "java",
+            "name": "TestPlanetConstructor",
+            "request": "launch",
+            "mainClass": "TestPlanetConstructor",
             "projectName": "nbody_2465b96b"
         },
         {

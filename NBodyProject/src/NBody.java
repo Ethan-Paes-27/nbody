@@ -7,7 +7,7 @@ public class NBody {
     public static void main(String[] args) {
         double totalTime = 157788000.0;
         double dt = 25000.0;
-        String pfile = "data/planets.txt";
+        String pfile = "NBodyProject\\data\\planets.txt";
         if (args.length > 2) {
             totalTime = Double.parseDouble(args[0]);
             dt = Double.parseDouble(args[1]);
@@ -31,7 +31,7 @@ public class NBody {
         }
 
         StdDraw.setScale(-radius, radius);
-        StdDraw.picture(0, 0, "images/starfield.jpg");
+        StdDraw.picture(0, 0, "NBodyProject\\images\\starfield.jpg");
 
         for (Planet planet : planets) {
             planet.draw();
@@ -50,13 +50,13 @@ public class NBody {
                 planets[i].update(dt, xForces[i], yForces[i]);
             }
 
-            StdDraw.picture(0, 0, "images/starfield.jpg");
+            StdDraw.picture(0, 0, "NBodyProject\\images\\starfield.jpg");
 
             for (Planet p : planets) {
                 p.draw();
             }
 
-            StdDraw.show(1);
+            StdDraw.show(0);
         }
 
         System.out.printf("%d\n", planets.length);
@@ -106,6 +106,8 @@ public class NBody {
                 double yVel = scan.nextDouble();
                 double mass = scan.nextDouble();
                 String name = scan.next();
+
+                name = "NBodyProject\\images\\" + name;
 
                 planets[i] = new Planet(xPos, yPos, xVel, yVel, mass, name);
             }
